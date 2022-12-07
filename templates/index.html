@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        form {
+          background-color: #e5f5f8;
+          border-radius: 40px;
+          font-family: Avenir;
+          padding: 40px;
+          margin: 0 auto; 
+          width:500px;
+        }
+        input { vertical-align: middle; margin-top: -1px;}
+        button { margin-top: 12px; }
+
+        button:hover, input:hover, label:hover { cursor: pointer; }
+
+
+    </style>
+</head>
+<body>
+     <form action="{{ url_for('predict')}}" method="post">
+         <h1 style="text-align: center">Loan Approval Prediction</h1>
+        <p>Does Credit Meet Banks Guidelines?:</p>
+        <input type="radio" id="good" style="vertical-align: middle" name="credit" value="good">
+        <label for="good">Yes</label><br>
+        <input type="radio" id="bad" style="vertical-align: middle" name="credit" value="bad">
+        <label for="good">No</label><br>
+        <p>Select Property type:</p>
+        <input type="radio" id="rural" name="area" style="vertical-align: middle" value="rural">
+        <label for="child">Rural</label><br>
+        <input type="radio" id="urban" name="area" style="vertical-align: middle"  value="urban">
+        <label for="semi_urban">Urban</label><br>
+        <input type="radio" id="semi_urban" style="vertical-align: middle" name="area" value="semi_urban">
+        <label for="rural">Semi-Urban</label><br>
+        <div class="form-group"><br>
+        <button type="submit" class="btn btn-primary btn-block btn-large"> Predict</button>
+     </form>
+     <h2 style="text-align: center">The loan status is: <br>{{predicted_text}}</h2>
+</body>
+</html>
+
